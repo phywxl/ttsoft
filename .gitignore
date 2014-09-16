@@ -1,0 +1,10 @@
+.metadata
+Servers
+.project
+.classpath
+.settings
+classes
+*.class
+*~
+*.diff
+*.patch
