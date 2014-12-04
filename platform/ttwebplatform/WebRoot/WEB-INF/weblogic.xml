@@ -8,12 +8,8 @@
 	<weblogic-version>10</weblogic-version>
 	
 	<container-descriptor>
-		<prefer-web-inf-classes>false</prefer-web-inf-classes>
+		<prefer-web-inf-classes>true</prefer-web-inf-classes>
 		<native-io-enabled>true</native-io-enabled>
-		<allow-all-roles>true</allow-all-roles>
-		<prefer-application-resources>
-        	<resource-name>org.apache.xerces.*</resource-name>
-    	</prefer-application-resources>
 	</container-descriptor>
 	
 	

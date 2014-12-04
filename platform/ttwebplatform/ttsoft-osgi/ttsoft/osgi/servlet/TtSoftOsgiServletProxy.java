@@ -38,6 +38,13 @@ public class TtSoftOsgiServletProxy extends GenericServlet {
 
 	@Override
 	public void destroy() {
+		if (initServlets != null && initServlets.size() > 0) {
+			for (Servlet servlet : this.initServlets) {
+				if (servlet != null) {
+					servlet.destroy();
+				}
+			}
+		}
 		initServlets = null;
 		if (listener != null)
 			bundleContext.removeServiceListener(listener);

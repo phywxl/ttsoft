@@ -7,6 +7,8 @@ public class ResTypeVo {
 	public static ResTypeVo DATARULE = new ResTypeVo("DATARULE", "DATARULE", "数据规则", "", 10.0);
 	public static ResTypeVo WEBACCESSRULE = new ResTypeVo("WEBACCESSRULE", "WEBACCESSRULE", "Web访问规则", "", 15.0);
 	public static ResTypeVo PLACEHOLDER = new ResTypeVo("PLACEHOLDER", "PLACEHOLDER", "占位符", "", 20.0);
+	public static ResTypeVo PORTAL = new ResTypeVo("PLACEHOLDER", "PLACEHOLDER", "Portal资源", "", 20.0);
+	public static ResTypeVo MODULEENTRY = new ResTypeVo("PLACEHOLDER", "PLACEHOLDER", "模块入口点", "", 20.0);
 	
 	private String resTypeId;
 	private String resTypeCode;

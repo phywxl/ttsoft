@@ -215,7 +215,51 @@ public class ResVo implements Serializable {
 		this.standbyField9 = standbyField9;
 	}
 	
-	
+	//备用字段
+	private String standbyField10;//备用字段10
+	private String standbyField11;//备用字段11
+	private String standbyField12;//备用字段12
+	private String standbyField13;//备用字段13
+	private String standbyField14;//备用字段14
+	private String standbyField15;//备用字段15
+	public String getStandbyField10() {
+		return standbyField10;
+	}
+	public void setStandbyField10(String standbyField10) {
+		this.standbyField10 = standbyField10;
+	}
+	public String getStandbyField11() {
+		return standbyField11;
+	}
+	public void setStandbyField11(String standbyField11) {
+		this.standbyField11 = standbyField11;
+	}
+	public String getStandbyField12() {
+		return standbyField12;
+	}
+	public void setStandbyField12(String standbyField12) {
+		this.standbyField12 = standbyField12;
+	}
+	public String getStandbyField13() {
+		return standbyField13;
+	}
+	public void setStandbyField13(String standbyField13) {
+		this.standbyField13 = standbyField13;
+	}
+	public String getStandbyField14() {
+		return standbyField14;
+	}
+	public void setStandbyField14(String standbyField14) {
+		this.standbyField14 = standbyField14;
+	}
+	public String getStandbyField15() {
+		return standbyField15;
+	}
+	public void setStandbyField15(String standbyField15) {
+		this.standbyField15 = standbyField15;
+	}
+
+
 	//资源类型信息
 	public static List<ResTypeVo> ResTypes = new ArrayList<ResTypeVo>();
 	static {
@@ -223,6 +267,8 @@ public class ResVo implements Serializable {
 		ResTypes.add(ResTypeVo.DATARULE);
 		ResTypes.add(ResTypeVo.WEBACCESSRULE);
 		ResTypes.add(ResTypeVo.PLACEHOLDER);
+		ResTypes.add(ResTypeVo.MODULEENTRY);
+		ResTypes.add(ResTypeVo.PORTAL);
 	}
 	
 	public static ResTypeVo getResType(String resTypeId) throws Exception {

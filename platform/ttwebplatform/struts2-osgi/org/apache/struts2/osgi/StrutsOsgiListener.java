@@ -35,26 +35,26 @@ public class StrutsOsgiListener implements ServletContextListener {
         } catch (Exception e) {
             throw new StrutsException("Cannot init OSGi platform!", e);
         }
-        /* phywxl 20130704, Çå³ý¼ÓÔØµ½ÄÚ´æµÄjsp class. Begin */
+        /* phywxl 20130704, ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½Ú´ï¿½ï¿½jsp class. Begin */
         osgiHost.getBundleContext().addBundleListener(new org.osgi.framework.BundleListener(){
 			public void bundleChanged(org.osgi.framework.BundleEvent event) {
 				if (org.osgi.framework.BundleEvent.STOPPED == event.getType() || org.osgi.framework.BundleEvent.UNINSTALLED == event.getType()) {
 					//System.out.println("====StrutsOsgiListener.contextInitialized(...) clear begin.");
-					/* phywxl 20131211, ½öÇå³ý±ä»¯µÄbunldeµÄ¼ÓÔØµ½ÄÚ´æµÄjsp class. Begin */
+					/* phywxl 20131211, ï¿½ï¿½ï¿½ï¿½ï¿½ä»¯ï¿½ï¿½bunldeï¿½Ä¼ï¿½ï¿½Øµï¿½ï¿½Ú´ï¿½ï¿½jsp class. Begin */
 					/*org.apache.struts2.JSPRuntime.clearCache();
 					org.apache.struts2.JSPLoader.classLoader.clearBundleMemoryJavaFileObject();
 					org.apache.struts2.JSPLoader.classLoader = new org.apache.struts2.compiler.MemoryClassLoader();*/
 					org.apache.struts2.JSPRuntime.clearCache(event.getBundle());
-					org.apache.struts2.JSPLoader.classLoader.clearBundleMemoryJavaFileObject(event.getBundle().getSymbolicName());
+					/*org.apache.struts2.JSPLoader.classLoader.clearBundleMemoryJavaFileObject(event.getBundle().getSymbolicName());
 					org.apache.struts2.compiler.MemoryClassLoader m = new org.apache.struts2.compiler.MemoryClassLoader();
 					m.copyMemoryJavaFileObject(org.apache.struts2.JSPLoader.classLoader);
-					org.apache.struts2.JSPLoader.classLoader = m;
-					/* phywxl 20131211, ½öÇå³ý±ä»¯µÄbunldeµÄ¼ÓÔØµ½ÄÚ´æµÄjsp class. End */
+					org.apache.struts2.JSPLoader.classLoader = m;*/
+					/* phywxl 20131211, ï¿½ï¿½ï¿½ï¿½ï¿½ä»¯ï¿½ï¿½bunldeï¿½Ä¼ï¿½ï¿½Øµï¿½ï¿½Ú´ï¿½ï¿½jsp class. End */
 					//System.out.println("====StrutsOsgiListener.contextInitialized(...) clear end.");
 				}
 			}
         });
-        /* phywxl 20130704, Çå³ý¼ÓÔØµ½ÄÚ´æµÄjsp class. END */
+        /* phywxl 20130704, ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½Ú´ï¿½ï¿½jsp class. END */
     }
 
     public void contextDestroyed(ServletContextEvent sce) {

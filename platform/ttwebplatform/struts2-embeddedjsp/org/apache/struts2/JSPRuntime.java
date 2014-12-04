@@ -37,15 +37,20 @@ import java.util.Map;
  * from the cache, the cache will block if the jsp was not compiled already, and wait for the compilation
  */
 public abstract class JSPRuntime {
+	protected static Map<String, ServletCache> mapServletCache = new java.util.concurrent.ConcurrentHashMap<String, ServletCache>();
     //maps from jsp path -> pagelet
-    protected static final ServletCache servletCache = new ServletCache();
+    //protected static final ServletCache servletCache = new ServletCache();
 
     public static void clearCache() {
-        servletCache.clear();
+        //servletCache.clear();
+    	mapServletCache.clear();
     }
     /* phywxl 20131211, 仅清除变化的bunlde的加载到内存的jsp class. Begin */
     public static void clearCache(Bundle bundle) {
-        servletCache.clear(bundle);
+        //servletCache.clear(bundle);
+    	for (ServletCache sc : mapServletCache.values()) {
+    		sc.clear(bundle);
+    	}
     }
     /* phywxl 20131211, 仅清除变化的bunlde的加载到内存的jsp class. End */
 
@@ -57,6 +62,12 @@ public abstract class JSPRuntime {
         final HttpServletResponse response = ServletActionContext.getResponse();
         HttpServletRequest request = ServletActionContext.getRequest();
         final UrlHelper urlHelper = ServletActionContext.getContext().getInstance(UrlHelper.class);
+        
+        ServletCache servletCache = mapServletCache.get(request.getContextPath());
+        if (servletCache == null) {
+        	servletCache = new ServletCache();
+        	mapServletCache.put(request.getContextPath(), servletCache);
+        }
 
         int i = location.indexOf("?");
         if (i > 0) {

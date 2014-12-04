@@ -19,6 +19,7 @@ package org.apache.struts2.jasper.runtime;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.lang.reflect.InvocationTargetException;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.security.PrivilegedActionException;
@@ -28,6 +29,7 @@ import java.util.HashMap;
 
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
+import javax.el.FunctionMapper;
 import javax.el.ValueExpression;
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -929,8 +931,18 @@ public class PageContextImpl extends PageContext {
 				}
 			}
 		} else {
-            ELContextImpl ctx = (ELContextImpl) pageContext.getELContext();
-            ctx.setFunctionMapper(new FunctionMapperImpl(functionMap));
+			/*wangxianliang 20141204 多系统共存tomcat发生问题*/
+			//System.out.println("=============pageContext.getELContext() classloader = " + pageContext.getELContext().getClass().getClassLoader());
+			//System.out.println("=============ELContextImpl.class classloader = " + ELContextImpl.class.getClassLoader());
+            //ELContextImpl ctx = (ELContextImpl) pageContext.getELContext();
+            //ctx.setFunctionMapper(new FunctionMapperImpl(functionMap));
+            ELContext ctx = (ELContext) pageContext.getELContext();
+            try {
+				ctx.getClass().getMethod("setFunctionMapper", new Class[]{FunctionMapper.class}).invoke(ctx, new FunctionMapperImpl(functionMap));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+            
             ValueExpression ve = exprFactory.createValueExpression(ctx, expression, expectedType);
             retValue = ve.getValue(ctx);
 		}

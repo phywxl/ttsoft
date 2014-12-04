@@ -41,7 +41,7 @@ public class MemoryClassLoader extends ClassLoader {
         //so the classes referenced from the compiled code will not be found by the System Class Loader because
         //the target dir is not part of the classpath used when calling the jvm to execute the tests
         //super(Thread.currentThread().getContextClassLoader());
-        /* phywxl 20170704 add. Ê×ÏÈ¼ÓÔØ²å¼þµÄÀà. BEGIN. ×¢Òâ£º×¢ÊÍÁËÉÏÃæ1ÌõÓï¾ä */
+        /* phywxl 20170704 add. ï¿½ï¿½ï¿½È¼ï¿½ï¿½Ø²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. BEGIN. ×¢ï¿½â£º×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ */
         super(new java.net.URLClassLoader(new java.net.URL[]{}, Thread.currentThread().getContextClassLoader()){
         	@Override
     		protected Class<?> findClass(String name)
@@ -50,12 +50,17 @@ public class MemoryClassLoader extends ClassLoader {
     			Class<?> clazz= null;
     			try{
     				clazz = DefaultBundleAccessor.getInstance().loadClass(name);
+    				if(clazz!=null){
+        				return clazz;
+        			}
     			} catch(Exception e){
     				clazz = null;
     			}
+    			clazz = MemoryClassLoader.class.getClassLoader().loadClass(name);
     			if(clazz!=null){
     				return clazz;
     			}
+    			System.out.println("=============MemoryClassLoader classloader = " + MemoryClassLoader.class.getClassLoader());
     			return super.findClass(name);
     		}
     		
@@ -66,24 +71,26 @@ public class MemoryClassLoader extends ClassLoader {
     			Class<?> clazz= null;
     			try{
     				clazz = DefaultBundleAccessor.getInstance().loadClass(name);
+    				if(clazz!=null){
+        				return clazz;
+        			}
     			} catch(Exception e){
     				clazz = null;
     			}
+    			clazz = MemoryClassLoader.class.getClassLoader().loadClass(name);
     			if(clazz!=null){
     				return clazz;
     			}
     			return super.loadClass(name);
     		}
         });
-        /* phywxl 20170704 add. Ê×ÏÈ¼ÓÔØ²å¼þµÄÀà. END  */
+        /* phywxl 20170704 add. ï¿½ï¿½ï¿½È¼ï¿½ï¿½Ø²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. END  */
     }
     
     /* phywxl 20170704 add. BEGIN  */
     public Class<?> loadClass(String location, String name) throws ClassNotFoundException {
     	Bundle bundle = this.getBundle(location);
-    	if (bundle == null) {
-    		super.loadClass(name);
-    	} else {
+    	if (bundle != null) {
     		Map<String, MemoryJavaFileObject> map = bundleCachedObjects.get(bundle.getSymbolicName());
     		if (map != null) {
 	    		MemoryJavaFileObject fileObject = map.get(name);
@@ -98,8 +105,7 @@ public class MemoryClassLoader extends ClassLoader {
     /* phywxl 20170704 add. END  */
 
     @Override
-    protected Class<?> findClass(String name) throws
-            ClassNotFoundException {
+    protected Class<?> findClass(String name) throws ClassNotFoundException {
         MemoryJavaFileObject fileObject = cachedObjects.get(name);
         if (fileObject != null) {
             byte[] bytes = fileObject.toByteArray();
@@ -169,7 +175,7 @@ public class MemoryClassLoader extends ClassLoader {
     	bundleCachedObjects.clear();
     }
     /* phywxl 20130704 add. END */
-    /* phywxl 20131211, ½öÇå³ý±ä»¯µÄbunldeµÄ¼ÓÔØµ½ÄÚ´æµÄjsp class. Begin */
+    /* phywxl 20131211, ï¿½ï¿½ï¿½ï¿½ï¿½ä»¯ï¿½ï¿½bunldeï¿½Ä¼ï¿½ï¿½Øµï¿½ï¿½Ú´ï¿½ï¿½jsp class. Begin */
     public void clearBundleMemoryJavaFileObject(String symbolicName) {
     	bundleCachedObjects.remove(symbolicName);
     }
@@ -177,5 +183,5 @@ public class MemoryClassLoader extends ClassLoader {
     	this.cachedObjects.putAll(m.cachedObjects);
     	this.bundleCachedObjects.putAll(m.bundleCachedObjects);
     }
-    /* phywxl 20131211, ½öÇå³ý±ä»¯µÄbunldeµÄ¼ÓÔØµ½ÄÚ´æµÄjsp class. End */
+    /* phywxl 20131211, ï¿½ï¿½ï¿½ï¿½ï¿½ä»¯ï¿½ï¿½bunldeï¿½Ä¼ï¿½ï¿½Øµï¿½ï¿½Ú´ï¿½ï¿½jsp class. End */
 }
