@@ -6,7 +6,7 @@
 <struts>
 	<constant name="struts.objectFactory" value="osgi" />
 	<constant name="struts.objectFactory.delegate" value="springOsgi" />
-    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
     <constant name="struts.devMode" value="true" />
     <!--     Struts2过滤器排除特定的请求  -->
     <constant name="struts.action.excludePattern" value="^/servlet/.*, ^/cservlet/.*" />

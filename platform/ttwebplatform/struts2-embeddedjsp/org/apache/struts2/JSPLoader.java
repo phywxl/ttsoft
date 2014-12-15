@@ -185,6 +185,11 @@ public class JSPLoader {
         		f.createNewFile();
         	java.io.FileOutputStream out = new java.io.FileOutputStream(f);
         	out.write(source.getBytes());
+        	try {
+        		out.close();
+        	} catch (IOException e) {
+        		e.printStackTrace();
+        	}
         }
         /* phywxl 20130704 add. 输出java源码。 END */
 

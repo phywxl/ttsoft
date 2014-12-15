@@ -48,10 +48,10 @@ public class SpringOsgiObjectFactory extends ObjectFactory {
     public Object buildBean(String className, Map<String, Object> extraContext, boolean injectInternal) throws Exception {
         if (containsBean(className))
             return getBean(className);
-        /* 20140310 wangxianliang ½â¾öÕÒ²»µ½webÈİÆ÷µÄspring ApplicationContextÎÊÌâ. BEGIN  */
+        /* 20140310 wangxianliang è§£å†³æ‰¾ä¸åˆ°webå®¹å™¨çš„spring ApplicationContexté—®é¢˜. BEGIN  */
         else if (containsBean2(className))
         	return getBean2(className);
-        /* 20140310 wangxianliang ½â¾öÕÒ²»µ½webÈİÆ÷µÄspring ApplicationContextÎÊÌâ. END  */
+        /* 20140310 wangxianliang è§£å†³æ‰¾ä¸åˆ°webå®¹å™¨çš„spring ApplicationContexté—®é¢˜. END  */
         else {
             Class clazz = ClassLoaderUtil.loadClass(className, SpringOsgiObjectFactory.class);
             Object object = clazz.newInstance();
@@ -71,7 +71,7 @@ public class SpringOsgiObjectFactory extends ObjectFactory {
     }
 
     protected Object getBean(String beanName) {
-    	/* 20130807 wangxianliang ½â¾östruts2 action bean´Óspring×¢Èë´íÎóµÄÎÊÌâ. BEGIN  */
+    	/* 20130807 wangxianliang è§£å†³struts2 action beanä»springæ³¨å…¥é”™è¯¯çš„é—®é¢˜. BEGIN  */
     	Bundle bundle = DefaultBundleAccessor.getInstance().getCurrentBundle();
     	
     	if (bundle == null) {
@@ -99,11 +99,11 @@ public class SpringOsgiObjectFactory extends ObjectFactory {
     			e.printStackTrace();
     		}
     	}
-    	/* 20130807 wangxianliang ½â¾östruts2 action bean´Óspring×¢Èë´íÎóµÄÎÊÌâ. END  */
+    	/* 20130807 wangxianliang è§£å†³struts2 action beanä»springæ³¨å…¥é”™è¯¯çš„é—®é¢˜. END  */
     	
         ServiceReference[] refs = bundleAccessor.getAllServiceReferences(SPRING_SERVICE_NAME);
         if (refs != null) {
-        	/* 20130807 wangxianliang ½â¾östruts2 action bean´Óspring×¢Èë´íÎóµÄÎÊÌâ. BEGIN  */
+        	/* 20130807 wangxianliang è§£å†³struts2 action beanä»springæ³¨å…¥é”™è¯¯çš„é—®é¢˜. BEGIN  */
         	if (bundle != null)
 	            for (ServiceReference ref : refs) {
 	            	if (ref.getBundle().getSymbolicName().equals(bundle.getSymbolicName())) {
@@ -112,7 +112,7 @@ public class SpringOsgiObjectFactory extends ObjectFactory {
 	                        return OsgiUtil.getBean(context, beanName);
 	            	}
 	            }
-            /* 20130807 wangxianliang ½â¾östruts2 action bean´Óspring×¢Èë´íÎóµÄÎÊÌâ. END  */
+            /* 20130807 wangxianliang è§£å†³struts2 action beanä»springæ³¨å…¥é”™è¯¯çš„é—®é¢˜. END  */
             
             for (ServiceReference ref : refs) {
                 Object context = bundleAccessor.getService(ref);
@@ -142,7 +142,7 @@ public class SpringOsgiObjectFactory extends ObjectFactory {
         this.bundleAccessor = bundleAccessor;
     }
     
-    /* 20140310 wangxianliang ½â¾öÕÒ²»µ½webÈİÆ÷µÄspring ApplicationContextÎÊÌâ. BEGIN  */
+    /* 20140310 wangxianliang è§£å†³æ‰¾ä¸åˆ°webå®¹å™¨çš„spring ApplicationContexté—®é¢˜. BEGIN  */
     protected boolean containsBean2(String beanName) {
     	ServletContext sc = ServletActionContext.getServletContext();
     	if (sc == null)
@@ -199,7 +199,7 @@ public class SpringOsgiObjectFactory extends ObjectFactory {
     	
     	return null;
     }
-    /* 20140310 wangxianliang ½â¾öÕÒ²»µ½webÈİÆ÷µÄspring ApplicationContextÎÊÌâ. END  */
+    /* 20140310 wangxianliang è§£å†³æ‰¾ä¸åˆ°webå®¹å™¨çš„spring ApplicationContexté—®é¢˜. END  */
     public static void main(String[] args) {
     	String symbolicName = "symbolicName_1.0";
     	if (symbolicName != null) {

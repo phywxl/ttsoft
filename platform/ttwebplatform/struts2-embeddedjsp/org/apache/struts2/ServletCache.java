@@ -22,6 +22,7 @@ package org.apache.struts2;
 
 import javax.servlet.Servlet;
 
+import org.apache.struts2.compiler.MemoryClassLoader;
 import org.apache.struts2.osgi.DefaultBundleAccessor;
 import org.osgi.framework.Bundle;
 
@@ -36,28 +37,35 @@ public class ServletCache {
 	/*protected final ConcurrentMap<String, Future<Servlet>> cache
             = new ConcurrentHashMap<String, Future<Servlet>>();*/
 	
-	/* wangxianliang 20130822 ½â¾ö²»Í¬²å¼þÏàÍ¬jsp»ìÏýÎÊÌâ. BEGIN*/
+	/* wangxianliang 20130822 ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Í¬jspï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. BEGIN*/
     protected final ConcurrentMap<String, Future<Servlet>> cacheJsp
             = new ConcurrentHashMap<String, Future<Servlet>>();
 
     protected final ConcurrentMap<Bundle, ConcurrentMap<String, Future<Servlet>>> cacheBundle
     = new ConcurrentHashMap<Bundle, ConcurrentMap<String, Future<Servlet>>>();
-    /* wangxianliang 20130822 ½â¾ö²»Í¬²å¼þÏàÍ¬jsp»ìÏýÎÊÌâ. END*/
+    /* wangxianliang 20130822 ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Í¬jspï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. END*/
 
     private final JSPLoader jspLoader = new JSPLoader();
 
-    /* phywxl 20131211, ½öÇå³ý±ä»¯µÄbunldeµÄ¼ÓÔØµ½ÄÚ´æµÄjsp class. Begin */
+    /* phywxl 20131211, ï¿½ï¿½ï¿½ï¿½ï¿½ä»¯ï¿½ï¿½bunldeï¿½Ä¼ï¿½ï¿½Øµï¿½ï¿½Ú´ï¿½ï¿½jsp class. Begin */
     public void clear(Bundle bundle) {
         cacheBundle.remove(bundle);
+        cacheJsp.clear();
+        
+        jspLoader.classLoader.clearBundleMemoryJavaFileObject(bundle.getSymbolicName());
+		org.apache.struts2.compiler.MemoryClassLoader m = new org.apache.struts2.compiler.MemoryClassLoader();
+		m.copyMemoryJavaFileObject(jspLoader.classLoader);
+		jspLoader.classLoader = m;
     }
-    /* phywxl 20131211, ½öÇå³ý±ä»¯µÄbunldeµÄ¼ÓÔØµ½ÄÚ´æµÄjsp class. End */
+    /* phywxl 20131211, ï¿½ï¿½ï¿½ï¿½ï¿½ä»¯ï¿½ï¿½bunldeï¿½Ä¼ï¿½ï¿½Øµï¿½ï¿½Ú´ï¿½ï¿½jsp class. End */
     
     public void clear() {
         //cache.clear();        
-        /* wangxianliang 20130822 ½â¾ö²»Í¬²å¼þÏàÍ¬jsp»ìÏýÎÊÌâ. BEGIN*/
+        /* wangxianliang 20130822 ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Í¬jspï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. BEGIN*/
     	cacheJsp.clear();
         cacheBundle.clear();
-        /* wangxianliang 20130822 ½â¾ö²»Í¬²å¼þÏàÍ¬jsp»ìÏýÎÊÌâ. END*/
+        jspLoader.classLoader = new org.apache.struts2.compiler.MemoryClassLoader();
+        /* wangxianliang 20130822 ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Í¬jspï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. END*/
     }
 
     public Servlet get(final String location) throws InterruptedException {
@@ -84,7 +92,7 @@ public class ServletCache {
                 throw launderThrowable(e.getCause());
             }
         }*/
-    	/* wangxianliang 20130822 ½â¾ö²»Í¬²å¼þÏàÍ¬jsp»ìÏýÎÊÌâ. BEGIN*/
+    	/* wangxianliang 20130822 ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Í¬jspï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. BEGIN*/
     	Bundle bundle = null;
     	String symbolicName = ServletActionContext.getActionMapping() == null ? null : ServletActionContext.getActionMapping().getNamespace();
     	if (symbolicName != null) {
@@ -145,7 +153,7 @@ public class ServletCache {
                 throw launderThrowable(e.getCause());
             }
         }
-        /* wangxianliang 20130822 ½â¾ö²»Í¬²å¼þÏàÍ¬jsp»ìÏýÎÊÌâ. END*/
+        /* wangxianliang 20130822 ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½Í¬jspï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. END*/
     }
 
     public static RuntimeException launderThrowable(Throwable t) {
