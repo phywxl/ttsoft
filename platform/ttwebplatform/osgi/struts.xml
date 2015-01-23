@@ -9,7 +9,7 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="true" />
     <constant name="struts.devMode" value="true" />
     <!--     Struts2过滤器排除特定的请求  -->
-    <constant name="struts.action.excludePattern" value="^/servlet/.*, ^/cservlet/.*" />
+    <constant name="struts.action.excludePattern" value="^/servlet/.*, ^/cservlet/.*, ^/sservlet/.*" />
 
 	<!-- 必须修改 -->
     <package name="default" namespace="/" extends="struts-default">

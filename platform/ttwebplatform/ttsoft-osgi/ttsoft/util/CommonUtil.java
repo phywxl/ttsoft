@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 import ttsoft.user.UserUtil;
 
 public class CommonUtil {
-	private static Logger _logger = LogManager.getLogger(UserUtil.class);
+	private static Logger _logger = LogManager.getLogger(CommonUtil.class);
 	
 	/**
 	 * 判断启用标志

@@ -1,0 +1,55 @@
+#weblogic部署问题
+##拷贝tomcat/lib/jasper.jar到ttwebplatform中，解决编译插件内jsp问题
+
+#osgi集成SpringMVC
+##建立类
+ttsoft.osgi.servlet.TtSoftOsgiSpringMVCServlet
+##修改web.xml，增加
+	<servlet>
+		<servlet-name>springMVCServlet</servlet-name>
+		<servlet-class>ttsoft.osgi.servlet.TtSoftOsgiSpringMVCServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springMVCServlet</servlet-name>
+		<url-pattern>/sservlet/*</url-pattern>
+	</servlet-mapping>
+##修改struts.xml
+<constant name="struts.action.excludePattern" value="^/servlet/.*, ^/cservlet/.*" />
+改为
+<constant name="struts.action.excludePattern" value="^/servlet/.*, ^/cservlet/.*, ^/sservlet/.*" />
+##增加spring配置文件
+/WEB-INF/springMVCServlet-servlet.xml
+##编码test类，请求http://localhost:8080/ttwebplatform/sservlet/test/hello，测试web工程spring mvc
+##编写插件ttsoft.osgi.test.springmvc.hello
+####请求 http://localhost:8080/ttwebplatform/sservlet/ttsoft.osgi.test.springmvc.hello_1.0/test/hello，测试插件工程spring mvc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

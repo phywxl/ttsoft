@@ -78,6 +78,20 @@
 		<servlet-name>customServletProxy</servlet-name>
 		<url-pattern>/cservlet/*</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>springMVCServlet</servlet-name>
+		<servlet-class>ttsoft.osgi.servlet.TtSoftOsgiSpringMVCServlet</servlet-class>
+		<init-param>
+			<param-name>publishEvents</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springMVCServlet</servlet-name>
+		<url-pattern>/sservlet/*</url-pattern>
+	</servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
