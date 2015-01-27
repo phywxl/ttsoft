@@ -1,0 +1,15 @@
+==部署注意事项==
+1、osgi/ttsoft-osgi.properties
+   1.1、不输出java源码
+   1.2、JDBC驱动配置信息调整
+   1.3、spring线程池调整
+   1.4、判异定时调度延时调整
+   1.5、调整最大登录数
+2、osgi/log4j.properties
+   2.1、log级别调整
+3、osgi/strutss.xml
+   3.1、struts.devMode调整
+   3.2、上传文件大小调整
+4、WebRoot/WEB-INF/web.xml
+   4.1、struts.osgi.logLevel调整
+5、System.out去掉   
