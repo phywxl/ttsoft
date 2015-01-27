@@ -1,0 +1,2 @@
+#访问插件资源
+start file:/D:\github\repos\ttsoft\plugins-core\plugins\ttsoft.osgi.web.pluginresfilter_1.0.0.jar

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: TTSoft OSGI Web Plugin Resource Filter
+Bundle-SymbolicName: ttsoft.osgi.web.pluginresfilter
+Bundle-Version: 1.0.0
+Bundle-Vendor: ttsoft.com.cn
+Import-Package: org.osgi.framework
+DynamicImport-Package: *
+Spring-Context: *;create-asynchronously:=false;timeout:=10

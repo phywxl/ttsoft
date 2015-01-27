@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:osgi="http://www.springframework.org/schema/osgi"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                      http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi-1.2.xsd">
+	
+	<osgi:service   id="osgi.web.pluginresfilter.pluginResourceFilter.service"
+	                interface="javax.servlet.Filter"
+	                ref="pluginResourceFilter">
+		<osgi:service-properties>
+      		<entry key="osgi.web.filter" value="true" />
+      		<entry key="osgi.web.filter.priority" value="1000" />
+    	</osgi:service-properties>
+	</osgi:service>
+</beans>
