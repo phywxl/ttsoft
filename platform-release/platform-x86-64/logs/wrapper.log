@@ -1,0 +1,121 @@
+STATUS | wrapper  | 2015/01/27 14:18:00 | --> Wrapper Started as Console
+STATUS | wrapper  | 2015/01/27 14:18:01 | Launching a JVM...
+INFO   | wrapper  | 2015/01/27 14:18:01 | command: "D:\tools\java\jdk1.7.0_17\bin\java.exe" -Djava.library.path="../lib" -classpath "../lib/asm-3.3.jar;../lib/asm-commons-3.3.jar;../lib/asm-tree-3.3.jar;../lib/aspectjrt.jar;../lib/aspectjweaver.jar;../lib/cglib-2.2.2.jar;../lib/com.springsource.net.sf.ehcache-1.6.2.jar;../lib/com.springsource.org.aopalliance-1.0.0.jar;../lib/commons-beanutils-1.8.3.jar;../lib/commons-collections-3.1.jar;../lib/commons-fileupload-1.3.jar;../lib/commons-io-2.0.1.jar;../lib/commons-lang-2.4.jar;../lib/commons-lang3-3.1.jar;../lib/commons-logging-1.1.3.jar;../lib/dom4j-1.6.1.jar;../lib/ezmorph-1.0.3.jar;../lib/freemarker-2.3.19.jar;../lib/ibatis-2.3.0.677.jar;../lib/javassist-3.17.1-GA.jar;../lib/jaxen-1.1.3.jar;../lib/json-lib-2.3-jdk15.jar;../lib/jsp-api.jar;../lib/juli-6.0.18.jar;../lib/log4j-1.2.17.jar;../lib/ognl-3.0.6.jar;../lib/ojdbc14.jar;../lib/org.apache.felix.framework-4.2.1.jar;../lib/org.apache.felix.main-4.2.1.jar;../lib/org.apache.felix.shell-1.4.3.jar;../lib/org.osgi.compendium-4.0.0.jar;../lib/org.osgi.core-4.1.0.jar;../lib/quartz-all-1.8.6.jar;../lib/serializer.jar;../lib/servlet-api.jar;../lib/slf4j-api-1.7.5.jar;../lib/slf4j-log4j12-1.7.5.jar;../lib/spring-aop-3.2.3.RELEASE.jar;../lib/spring-aspects-3.2.3.RELEASE.jar;../lib/spring-beans-3.2.3.RELEASE.jar;../lib/spring-context-3.2.3.RELEASE.jar;../lib/spring-context-support-3.2.3.RELEASE.jar;../lib/spring-core-3.2.3.RELEASE.jar;../lib/spring-expression-3.2.3.RELEASE.jar;../lib/spring-jdbc-3.2.3.RELEASE.jar;../lib/spring-jms-3.2.3.RELEASE.jar;../lib/spring-orm-3.2.3.RELEASE.jar;../lib/spring-oxm-3.2.3.RELEASE.jar;../lib/spring-patch-quartz.jar;../lib/spring-security-acl-3.1.4.RELEASE.jar;../lib/spring-security-aspects-3.1.4.RELEASE.jar;../lib/spring-security-cas-3.1.4.RELEASE.jar;../lib/spring-security-config-3.1.4.RELEASE.jar;../lib/spring-security-core-3.1.4.RELEASE.jar;../lib/spring-security-crypto-3.1.4.RELEASE.jar;../lib/spring-security-ldap-3.1.4.RELEASE.jar;../lib/spring-security-openid-3.1.4.RELEASE.jar;../lib/spring-security-remoting-3.1.4.RELEASE.jar;../lib/spring-security-web-3.1.4.RELEASE.jar;../lib/spring-tx-3.2.3.RELEASE.jar;../lib/spring-web-3.2.3.RELEASE.jar;../lib/spring-webmvc-3.2.3.RELEASE.jar;../lib/struts2-core-2.3.15.jar;../lib/struts2-embeddedjsp-plugin-2.3.15.jar;../lib/struts2-json-plugin-2.3.15.jar;../lib/struts2-osgi-plugin-2.3.15.jar;../lib/ttsoft-main.jar;../lib/ttsoft-osgi.jar;../lib/wrapper.jar;../lib/xalan.jar;../lib/xercesImpl.jar;../lib/xml-apis.jar;../lib/xwork-core-2.3.15.jar;../conf/;../" -Dwrapper.key="_qPzLslXke1LLcSq" -Dwrapper.port=32000 -Dwrapper.jvm.port.min=31000 -Dwrapper.jvm.port.max=31999 -Dwrapper.pid=3636 -Dwrapper.version="3.2.3" -Dwrapper.native_library="wrapper" -Dwrapper.cpu.timeout="10" -Dwrapper.jvmid=1 org.tanukisoftware.wrapper.WrapperSimpleApp ttsoft.main.Main
+INFO   | jvm 1    | 2015/01/27 14:18:02 | WrapperManager: Initializing...
+INFO   | jvm 1    | 2015/01/27 14:18:02 | WrapperManager: WARNING - The Wrapper jar file currently in use is version "3.5.3"
+INFO   | jvm 1    | 2015/01/27 14:18:02 | WrapperManager:           while the version of the Wrapper which launched this JVM is 
+INFO   | jvm 1    | 2015/01/27 14:18:02 | WrapperManager:           "3.2.3".
+INFO   | jvm 1    | 2015/01/27 14:18:02 | WrapperManager:           The Wrapper may appear to work correctly but some features may
+INFO   | jvm 1    | 2015/01/27 14:18:02 | WrapperManager:           not function correctly.  This configuration has not been tested
+INFO   | jvm 1    | 2015/01/27 14:18:02 | WrapperManager:           and is not supported.
+INFO   | jvm 1    | 2015/01/27 14:18:02 | WrapperManager: 
+INFO   | jvm 1    | 2015/01/27 14:18:02 | 2015-01-27 14:18:02,759 DEBUG (ttsoft.main.Main:72) - Adding bundle [file:/D:/github/repos/ttsoft/platform-release/platform-x64/bundles/3/spring-osgi-core-1.2.1.jar]
+INFO   | jvm 1    | 2015/01/27 14:18:02 | 2015-01-27 14:18:02,762 DEBUG (ttsoft.main.Main:72) - Adding bundle [file:/D:/github/repos/ttsoft/platform-release/platform-x64/bundles/3/spring-osgi-extender-1.2.1.jar]
+INFO   | jvm 1    | 2015/01/27 14:18:02 | 2015-01-27 14:18:02,764 DEBUG (ttsoft.main.Main:72) - Adding bundle [file:/D:/github/repos/ttsoft/platform-release/platform-x64/bundles/3/spring-osgi-io-1.2.1.jar]
+INFO   | jvm 1    | 2015/01/27 14:18:02 | 2015-01-27 14:18:02,765 DEBUG (ttsoft.main.Main:72) - Adding bundle [file:/D:/github/repos/ttsoft/platform-release/platform-x64/bundles/2/org.apache.felix.configadmin-1.2.8.jar]
+INFO   | jvm 1    | 2015/01/27 14:18:02 | 2015-01-27 14:18:02,765 DEBUG (ttsoft.main.Main:72) - Adding bundle [file:/D:/github/repos/ttsoft/platform-release/platform-x64/bundles/2/org.apache.felix.eventadmin-1.2.14.jar]
+INFO   | jvm 1    | 2015/01/27 14:18:02 | 2015-01-27 14:18:02,765 DEBUG (ttsoft.main.Main:72) - Adding bundle [file:/D:/github/repos/ttsoft/platform-release/platform-x64/bundles/2/org.apache.felix.shell.tui-1.4.1.jar]
+INFO   | jvm 1    | 2015/01/27 14:18:02 | 2015-01-27 14:18:02,765 DEBUG (ttsoft.main.Main:72) - Adding bundle [file:/D:/github/repos/ttsoft/platform-release/platform-x64/bundles/2/org.osgi.enterprise-4.2.0.jar]
+INFO   | jvm 1    | 2015/01/27 14:18:02 | 2015-01-27 14:18:02,766 DEBUG (ttsoft.main.Main:72) - Adding bundle [file:/D:/github/repos/ttsoft/platform-release/platform-x64/bundles/100/osgi.base_1.0_1.0.0.jar]
+INFO   | jvm 1    | 2015/01/27 14:18:02 | 2015-01-27 14:18:02,766 DEBUG (ttsoft.main.Main:72) - Storing bundles at [D:\github\repos\ttsoft\platform-release\platform-x64\bin\.felix-cache]
+INFO   | jvm 1    | 2015/01/27 14:18:02 | 2015-01-27 14:18:02,766 DEBUG (ttsoft.main.Main:72) - Clearing bundle cache
+INFO   | jvm 1    | 2015/01/27 14:18:03 | Auto-properties install: file:/D:/github/repos/ttsoft/platform-release/platform-x64/lib/org.apache.felix.framework-4.2.1.jar (org.osgi.framework.BundleException: Bundle symbolic name and version are not unique: org.apache.felix.framework:4.2.1)
+INFO   | jvm 1    | 2015/01/27 14:18:03 | Auto-properties start: file:/D:/github/repos/ttsoft/platform-release/platform-x64/lib/org.apache.felix.framework-4.2.1.jar (org.osgi.framework.BundleException: Bundle symbolic name and version are not unique: org.apache.felix.framework:4.2.1)
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [1.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.framework)(version>=1.4.0)(!(version>=2.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [1.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.service.packageadmin)(version>=1.2.0)(!(version>=2.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [1.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.service.startlevel)(version>=1.1.0)(!(version>=2.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [1.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.util.tracker)(version>=1.3.0)(!(version>=2.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [3.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.framework)(version>=1.3.0)) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [6.0] osgi.wiring.package; (osgi.wiring.package=javax.management.openmbean) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [6.0] osgi.wiring.package; (osgi.wiring.package=javax.naming) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [6.0] osgi.wiring.package; (osgi.wiring.package=javax.naming.directory) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [6.0] osgi.wiring.package; (osgi.wiring.package=javax.servlet) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [6.0] osgi.wiring.package; (osgi.wiring.package=javax.servlet.http) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [6.0] osgi.wiring.package; (osgi.wiring.package=javax.sql) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [6.0] osgi.wiring.package; (osgi.wiring.package=javax.xml.parsers) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [6.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.framework)(version>=1.5.0)(!(version>=2.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [6.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.service.cm)(version>=1.3.0)(!(version>=2.0.0))) -> [3.0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [6.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.service.event)(version>=1.2.0)(!(version>=2.0.0))) -> [4.0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [6.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.service.log)(version>=1.3.0)(!(version>=2.0.0))) -> [1.0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [6.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.util.tracker)(version>=1.4.0)(!(version>=2.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [4.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.framework)(version>=1.3.0)(!(version>=2.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [4.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.service.cm)(version>=1.2.0)(!(version>=2.0.0))) -> [3.0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [4.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.service.metatype)(version>=1.1.0)(!(version>=2.0.0))) -> [6.0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [5.0] osgi.wiring.package; (&(osgi.wiring.package=org.apache.felix.shell)(version>=1.0.0)) -> [1.0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [5.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.framework)(version>=1.3.0)) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | -> DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.aopalliance.aop)(version>=0.0.0)) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.aopalliance.intercept)(version>=0.0.0)) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.apache.commons.logging)(version>=1.0.0)(!(version>=2.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.framework)(version>=1.3.0)) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.service.cm)(version>=1.2.0)) -> [3.0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.service.packageadmin)(version>=1.2.0)) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.service.startlevel)(version>=1.0.0)) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.aop)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.aop.framework)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.aop.support)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.beans)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.beans.factory)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.beans.factory.config)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.beans.factory.support)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.beans.factory.xml)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.beans.propertyeditors)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.context)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.context.event)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.context.support)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.core)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.core.enums)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.core.io)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.core.io.support)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.osgi.io)(version>=1.2.1)(version<=1.2.1)) -> [9.0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.util)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.util.xml)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (osgi.wiring.package=org.w3c.dom) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [7.0] osgi.wiring.package; (osgi.wiring.package=org.xml.sax) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [9.0] osgi.wiring.package; (&(osgi.wiring.package=org.apache.commons.logging)(version>=1.0.0)(!(version>=2.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [9.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.framework)(version>=1.3.0)) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [9.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.service.packageadmin)(version>=1.2.0)) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [9.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.core.io)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [9.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.core.io.support)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [9.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.util)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.apache.commons.logging)(version>=1.0.0)(!(version>=2.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.framework)(version>=1.3.0)) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.osgi.service.packageadmin)(version>=1.2.0)) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.beans)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.beans.factory)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.beans.factory.config)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.beans.factory.xml)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.context)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.context.event)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.core)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.core.enums)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.core.io)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.core.task)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.osgi)(version>=1.2.1)(version<=1.2.1)) -> [7.0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.osgi.context)(version>=1.2.1)(version<=1.2.1)) -> [7.0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.osgi.context.event)(version>=1.2.1)(version<=1.2.1)) -> [7.0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.osgi.context.support)(version>=1.2.1)(version<=1.2.1)) -> [7.0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.osgi.service.importer)(version>=1.2.1)(version<=1.2.1)) -> [7.0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.osgi.service.importer.event)(version>=1.2.1)(version<=1.2.1)) -> [7.0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.osgi.service.importer.support)(version>=1.2.1)(version<=1.2.1)) -> [7.0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.osgi.util)(version>=1.2.1)(version<=1.2.1)) -> [7.0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.scheduling.timer)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (&(osgi.wiring.package=org.springframework.util)(version>=2.5.6)(!(version>=4.0.0))) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [8.0] osgi.wiring.package; (osgi.wiring.package=org.xml.sax) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: Bundle org.springframework.osgi.core [7] META-INF/services/org.apache.commons.logging.LogFactory not found by org.springframework.osgi.core [7]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: DYNAMIC WIRE: [7.0] osgi.wiring.package; (osgi.wiring.package=*) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:03 | DEBUG: WIRE: [10.0] osgi.wiring.package; (osgi.wiring.package=org.osgi.framework) -> [0]
+INFO   | jvm 1    | 2015/01/27 14:18:07 | -> 
+INFO   | jvm 1    | 2015/01/27 14:18:08 | -> 
+INFO   | jvm 1    | 2015/01/27 14:18:11 | START LEVEL 1000
+INFO   | jvm 1    | 2015/01/27 14:18:11 |    ID   State         Level  Name
+INFO   | jvm 1    | 2015/01/27 14:18:11 | [   0] [Active     ] [    0] System Bundle (4.2.1)
+INFO   | jvm 1    | 2015/01/27 14:18:11 | [   1] [Active     ] [    1] Apache Felix Shell Service (1.4.3)
+INFO   | jvm 1    | 2015/01/27 14:18:11 | [   3] [Active     ] [    2] Apache Felix Configuration Admin Service (1.2.8)
+INFO   | jvm 1    | 2015/01/27 14:18:11 | [   4] [Active     ] [    2] Apache Felix EventAdmin (1.2.14)
+INFO   | jvm 1    | 2015/01/27 14:18:11 | [   5] [Active     ] [    2] Apache Felix Shell TUI (1.4.1)
+INFO   | jvm 1    | 2015/01/27 14:18:11 | [   6] [Active     ] [    2] osgi.enterprise (4.2.0.201003190513)
+INFO   | jvm 1    | 2015/01/27 14:18:11 | [   7] [Active     ] [    3] spring-osgi-core (1.2.1)
+INFO   | jvm 1    | 2015/01/27 14:18:11 | [   8] [Active     ] [    3] spring-osgi-extender (1.2.1)
+INFO   | jvm 1    | 2015/01/27 14:18:11 | [   9] [Active     ] [    3] spring-osgi-io (1.2.1)
+INFO   | jvm 1    | 2015/01/27 14:18:11 | [  10] [Active     ] [  100] TTSoft OSGI Base (1.0.0)
+INFO   | jvm 1    | 2015/01/27 14:18:11 | -> 
