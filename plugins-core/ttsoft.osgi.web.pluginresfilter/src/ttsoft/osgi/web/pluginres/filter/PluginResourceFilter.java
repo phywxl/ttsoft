@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.Version;
 import org.springframework.osgi.context.BundleContextAware;
 
 public class PluginResourceFilter implements Filter, BundleContextAware {
@@ -124,18 +125,47 @@ public class PluginResourceFilter implements Filter, BundleContextAware {
 		boolean isPluginId = false;
 		Bundle bundle = null;
 		if (pluginTmpId != null) {
-			Map<String, Bundle> activeBundles = getActiveBundles();  //所有插件
+			List<Bundle> activeBundles = getActiveBundles();  //所有插件
 			//是否插件ID
-			for (String id : activeBundles.keySet()) {
-				if (id != null && id.trim().equals(pluginTmpId)) {
-					bundle = activeBundles.get(id);
+			for (Bundle b : activeBundles) {
+				if (b.getSymbolicName().trim().equals(pluginTmpId)) {
 					isPluginId = true;
-					break;
+					
+					if (bundle  == null) {
+						bundle = b;
+						continue;
+					} else {
+						if (b.getVersion().compareTo(bundle.getVersion()) > 0) {
+							bundle = b;
+						}
+					}
 				}
 			}
 			//是插件，增加资源前缀
 			if (isPluginId) {
 				String t = neatUrl.substring(neatUrl.indexOf(pluginTmpId) + pluginTmpId.length());
+				
+				String v = null;
+				Version version = null;
+				v = getVersion(t);
+				if (v != null) {
+					try {
+						version = Version.parseVersion(v);
+					} catch (Throwable e) {
+						version = null;
+					}
+				}
+				
+				if (version != null) {
+					t = t.substring(v.length());
+					
+					for (Bundle b : activeBundles) {
+						if (b.getSymbolicName().trim().equals(pluginTmpId) && version.equals(b.getVersion())) {
+							bundle = b;
+						}
+					}
+				}
+				
 				for (String prefix : pluginResourcePathPrefix) {
 					if (prefix != null)
 						pathReses.add(prefix + t);
@@ -144,9 +174,6 @@ public class PluginResourceFilter implements Filter, BundleContextAware {
 			}
 		}
 		pathReses.add(neatUrl);
-		//System.out.println("PluginResourceFilter pathReses=" + pathReses);
-		//System.out.println("PluginResourceFilter pluginTmpId=" + pluginTmpId);
-		//System.out.println("PluginResourceFilter isPluginId=" + isPluginId);
 		
 		List<String> paths = new ArrayList<String>();
 		paths.addAll(pathReses);
@@ -180,55 +207,7 @@ public class PluginResourceFilter implements Filter, BundleContextAware {
 			} catch (Throwable e) {
 			}
 		}
-		/*//从当前插件获取资源
-		bundle = DefaultBundleAccessor.getInstance().getCurrentBundle();
-		if (bundle != null) {
-			for (String path : paths) {
-				if (path == null || path.trim().equals(""))
-					continue;
-				
-				while (path.startsWith("/"))
-					path = path.substring(1);
-				
-				url = bundle.getResource(path);
-				
-				if (url != null)
-					break;
-			}
-		}
-		if (url != null) {
-			try {
-				this.output(url.openStream(), out);
-				//System.out.println("PluginResourceFilter out resource from DefaultBundleAccessor.getInstance().getCurrentBundle() bundle=" + bundle + ", url=" + url);
-				return;
-			} catch (Throwable e) {
-			}
-		}
-		//从所有插件中获取资源
-		for (Bundle b : activeBundles.values()) {
-			if (b != null) {
-				for (String path : paths) {
-					if (path == null || path.trim().equals(""))
-						continue;
-					
-					while (path.startsWith("/"))
-						path = path.substring(1);
-					
-					url = b.getResource(path);
-					
-					if (url != null)
-						break;
-				}
-			}
-			if (url != null) {
-				try {
-					this.output(url.openStream(), out);
-					//System.out.println("PluginResourceFilter out resource from activeBundles bundle=" + b + ", url=" + url);
-					return;
-				} catch (Throwable e) {
-				}
-			}
-		}*/
+		
 		
 		//继续下一过滤器
 		chain.doFilter(srequest, sresponse);
@@ -237,6 +216,20 @@ public class PluginResourceFilter implements Filter, BundleContextAware {
 	@Override
 	public void setBundleContext(BundleContext bundleContext) {
 		PluginResourceFilter.bundleContext = bundleContext;
+	}
+	
+	public String getVersion(String path) {
+		String p = null;
+		if (path == null || (path = path.trim()).equals("")) {
+			return null;
+		}
+		while (path.startsWith("/")) {
+			path = path.substring(1);
+		}
+		if (path.indexOf("/") > 0) {
+			return path.substring(0, path.indexOf("/"));
+		}
+		return null;
 	}
 	
 	public void setCacheHeader(long adddays, HttpServletRequest request, HttpServletResponse response) {
@@ -264,14 +257,14 @@ public class PluginResourceFilter implements Filter, BundleContextAware {
 						.append("?").append(queryString).toString());
 	}
 	
-	private Map<String, Bundle> getActiveBundles() {
-        Map<String, Bundle> bundles = new HashMap<String, Bundle>();
+	private List<Bundle> getActiveBundles() {
+		List<Bundle> bundles = new ArrayList<Bundle>();
         for (Bundle bundle : bundleContext.getBundles()) {
             if (bundle.getState() == Bundle.ACTIVE)
-                bundles.put(bundle.getSymbolicName(), bundle);
+                bundles.add(bundle);
         }
 
-        return Collections.unmodifiableMap(bundles);
+        return Collections.unmodifiableList(bundles);
     }
 	
 	private String getPlunginIdFromPath(String path) {
@@ -635,5 +628,4 @@ public class PluginResourceFilter implements Filter, BundleContextAware {
 			}
 		}
 	}
-
 }
