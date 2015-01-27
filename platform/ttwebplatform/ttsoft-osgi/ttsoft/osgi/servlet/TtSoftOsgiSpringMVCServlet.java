@@ -62,13 +62,23 @@ public class TtSoftOsgiSpringMVCServlet extends GenericServlet {
 		HttpServletRequest request = (HttpServletRequest)srequest;
 		
 		//判断是否请求插件
-		BundleHolder holder = this.getBundleHolder(request);
+		TtSoftOsgiSpringMVCBundleHolder holder = this.getBundleHolder(request);
 		if (holder != null) {
-			MyDispatcherServlet2 d2 = new MyDispatcherServlet2(this, holder);
-			d2.init();
-			
-			TtSoftOsgiSpringMVCRequestWrapper w = new TtSoftOsgiSpringMVCRequestWrapper(request, holder.getSymbolicName(), holder.getVer());
-			d2.service(w, sresponse);
+			TtSoftOsgiSpringMVCContext.setContext(new TtSoftOsgiSpringMVCContext(holder));
+			try {
+				MyDispatcherServlet2 d2 = new MyDispatcherServlet2(this, holder);
+				d2.init();
+				
+				TtSoftOsgiSpringMVCRequestWrapper w = new TtSoftOsgiSpringMVCRequestWrapper(request, holder.getSymbolicName(), holder.getVer());
+				holder.setWebApplicationContext(d2.getWebApplicationContext());
+				d2.service(w, sresponse);
+			} catch (ServletException e) {
+				
+			} catch (IOException e) {
+				
+			} finally {
+				TtSoftOsgiSpringMVCContext.setContext(null);
+			}
 		} 
 		//不请求插件，请求web容器内的spring
 		else {
@@ -88,7 +98,7 @@ public class TtSoftOsgiSpringMVCServlet extends GenericServlet {
 	}
 
 	
-	private BundleHolder getBundleHolder(HttpServletRequest request) {
+	private TtSoftOsgiSpringMVCBundleHolder getBundleHolder(HttpServletRequest request) {
 		UrlPathHelper helper = new UrlPathHelper();
 		String path = helper.getLookupPathForRequest(request);
 		if (path == null || (path = path.trim()).equals("")) {
@@ -160,7 +170,7 @@ public class TtSoftOsgiSpringMVCServlet extends GenericServlet {
 				return null;
 			}
 			
-			return new BundleHolder(synblicName, version == null ? null : v, bundle, request, applicationContext);
+			return new TtSoftOsgiSpringMVCBundleHolder(synblicName, version == null ? null : v, bundle, request, applicationContext);
 		}
 		
 		return null;
@@ -210,7 +220,7 @@ public class TtSoftOsgiSpringMVCServlet extends GenericServlet {
 	 * @author a
 	 *
 	 */
-	class BundleHolder {
+	/*class BundleHolder {
 		private String symbolicName;
 		private String ver;
 		Bundle bundle;
@@ -236,7 +246,7 @@ public class TtSoftOsgiSpringMVCServlet extends GenericServlet {
 		public String getVer() {
 			return ver;
 		}
-	}
+	}*/
 
 	/**
 	 * Spring DispatcherServlet 子类，重新定义servlet环境
@@ -269,9 +279,9 @@ public class TtSoftOsgiSpringMVCServlet extends GenericServlet {
 	
 	class MyDispatcherServlet2 extends MyDispatcherServlet {
 		public TtSoftOsgiSpringMVCServlet owner;
-		private BundleHolder holder;
+		private TtSoftOsgiSpringMVCBundleHolder holder;
 		
-		public MyDispatcherServlet2(TtSoftOsgiSpringMVCServlet owner, BundleHolder holder) {
+		public MyDispatcherServlet2(TtSoftOsgiSpringMVCServlet owner, TtSoftOsgiSpringMVCBundleHolder holder) {
 			super(owner);
 			this.owner = owner;
 			this.holder = holder;

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" 
+         xmlns="http://java.sun.com/xml/ns/j2ee" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>JavaPlatform3</display-name>
+	<description>JavaPlatform3</description>
+	<!-- OSGI容器配置参数 -->
+	<context-param> <!-- osgi使用的容器：Glassfish，默认felix -->
+    	<param-name>struts.osgi.host</param-name>
+    	<param-value>felix</param-value>
+	</context-param>
+	<context-param> <!-- 是否清理插件缓存 -->
+    	<param-name>struts.osgi.clearBundleCache</param-name>
+    	<param-value>true</param-value>
+	</context-param>
+	<context-param> <!-- osgi容器启动插件层级 -->
+    	<param-name>struts.osgi.runLevel</param-name>
+    	<param-value>1000</param-value>
+	</context-param>
+	<context-param> <!-- osgi容器log级别，在部署时改为1 -->
+    	<param-name>struts.osgi.logLevel</param-name>
+    	<param-value>4</param-value>
+	</context-param>
+	<!-- 启动OSGI容器 -->
+	<listener>
+        <listener-class>org.apache.struts2.osgi.StrutsOsgiListener</listener-class>
+    </listener>
+    <!-- 代理osgi容器内发布的listener service -->
+    <listener>
+        <listener-class>ttsoft.osgi.listener.TtSoftOsgiListenerProxy</listener-class>
+    </listener>
+    <!-- 代理osgi容器内发布的filter -->
+    <filter>
+        <filter-name>TtSoftOsgiFilterChainProxy</filter-name>
+        <filter-class>
+            ttsoft.osgi.filter.TtSoftOsgiFilterChainProxy
+        </filter-class>
+        <init-param>
+        	<param-name>pluginResourceExcludePaths</param-name>
+        	<param-value>.*\.action$</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>TtSoftOsgiFilterChainProxy</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!-- Struts2 Filter -->
+	<filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <!-- OSGI HttpService代理 -->
+	<listener>
+		<listener-class>org.apache.felix.http.proxy.ProxyListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>osgiHttpServiceProxy</servlet-name>
+		<servlet-class>org.apache.felix.http.proxy.ProxyServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>osgiHttpServiceProxy</servlet-name>
+		<url-pattern>/servlet/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>customServletProxy</servlet-name>
+		<servlet-class>ttsoft.osgi.servlet.TtSoftOsgiServletProxy</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>customServletProxy</servlet-name>
+		<url-pattern>/cservlet/*</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weblogic-web-app xmlns="http://www.bea.com/ns/weblogic/90" 
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                  xsi:schemaLocation="http://www.bea.com/ns/weblogic/90 http://www.bea.com/ns/weblogic/920/weblogic-web-app.xsd 
+                                      http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<description></description>
+	<weblogic-version>10</weblogic-version>
+	
+	<container-descriptor>
+		<prefer-web-inf-classes>true</prefer-web-inf-classes>
+		<native-io-enabled>true</native-io-enabled>
+	</container-descriptor>
+	
+	
+</weblogic-web-app>

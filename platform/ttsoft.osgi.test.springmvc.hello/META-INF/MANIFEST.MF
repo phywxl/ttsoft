@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: TTSoft OSGI Test Spring MVC Hello
+Bundle-SymbolicName: ttsoft.osgi.test.springmvc.hello_1.0
+Bundle-Version: 1.0.0
+Bundle-Vendor: ttsoft.com.cn
+DynamicImport-Package: *
+Spring-Context: *;create-asynchronously:=false;timeout:=10
