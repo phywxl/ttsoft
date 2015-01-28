@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<!-- 为一个vo类取一个别名儿，后面用的时候可以直接用该vo类的别名而不用在写包+类名称 -->
+		<typeAlias type="ttsoft.osgi.test.mybatis.vo.Test" alias="TestTable"/>
+	</typeAliases>
+	
+	<mappers>
+		<!-- 对应vo类的DAO接口所对应的xml配置文件的路径信息 -->
+		<mapper resource="ttsoft/osgi/test/mybatis/dao/mybatis/TestDaoImpl.xml" />
+	</mappers>
+</configuration>

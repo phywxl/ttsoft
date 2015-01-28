@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:osgi="http://www.springframework.org/schema/osgi"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+                      http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi-1.2.xsd">
+	
+	<bean id="dataSourceManageImpl" class="ttsoft.osgi.datasource.dao.ibatis.DataSourceManageImpl">
+		<property name="sqlMapClientTemplate" ref="sqlMapClientTemplate" />
+		<property name="initDataSourceManage" ref="initDataSourceManage" />
+	</bean>
+	
+	<bean id="tableManageImpl" class="ttsoft.osgi.datasource.dao.ibatis.TableManageImpl">
+		<property name="sqlMapClientTemplate" ref="sqlMapClientTemplate" />
+	</bean>
+	
+	<bean id="initDataSourceManage" class="ttsoft.osgi.datasource.internal.InitDataSourceManage"
+	      init-method="start" destroy-method="destroy">
+		<property name="sqlMapClientTemplate" ref="sqlMapClientTemplate" />
+		<property name="minPoolSize" value="${jdbc.minPoolSize}"/>
+        <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+		<property name="initialPoolSize" value="${jdbc.initialPoolSize}"/>
+		<property name="acquireIncrement" value="${jdbc.acquireIncrement}"/>
+	</bean>
+	
+	<bean id="dataSourceManageAction" class="ttsoft.osgi.datasource.action.DataSourceManageAction" scope="prototype">
+		<property name="dataSourceManage" ref="dataSourceManageImpl" />
+	</bean>
+	
+	<bean id="iDataSource" class="ttsoft.osgi.datasource.expose.impl.DataSourceImpl">
+		<property name="fixId" value="6DE0FB8CF6FC492ABB37B604428FE35B" />
+		<property name="fixServiceName" value="ttsoft.osgi.datasource.localhost" />
+		<property name="fixDataSource" ref="ttsoft.osgi.datasource.localhost" />
+		<property name="initDataSourceManage" ref="initDataSourceManage" />
+		<property name="bundleContextPropertyPlaceholderConfigurer"  ref="bundleContextPropertyPlaceholderConfigurer" />
+	</bean>
+	
+	<bean id="iTable" class="ttsoft.osgi.datasource.expose.impl.TableImpl">
+		<property name="tableManage"  ref="tableManageImpl" />
+	</bean>
+	
+	<bean id="dataSourceUtil" class="ttsoft.osgi.datasource.expose.DataSourceUtil"
+	      destroy-method="destroy">
+	</bean>
+</beans>

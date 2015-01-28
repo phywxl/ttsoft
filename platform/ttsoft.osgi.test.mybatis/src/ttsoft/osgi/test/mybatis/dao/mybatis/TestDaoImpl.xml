@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<!--namespace的作用是为这张表取一个名字，好在impl类中进行访问 -->
+<mapper namespace="com.hd.ec.demo.mybatis.dao.mybatis.TestTable">
+	<!-- 插入一行数据 -->
+	<insert id="doInsert" parameterType="TestTable">
+		INSERT INTO PERSON (ID,FIRSTNAME,LASTNAME) VALUES(#{id},#{firstName},#{lastName})
+	</insert>
+</mapper>

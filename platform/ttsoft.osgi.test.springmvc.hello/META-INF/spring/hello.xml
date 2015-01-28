@@ -11,12 +11,6 @@
 
 	<bean name="/test/hello" class="ttsoft.osgi.test.springmvc.HelloController" />
     
-    <!--  
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF"/> 
-        <property name="suffix" value=".jsp"/>
-    </bean>
-	-->
 	<!-- freemarker的配置 -->
 	<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
 		<property name="templateLoaderPath" value="/WebRoot/" />
@@ -33,9 +27,6 @@
 	</bean>
 	<!-- FreeMarker视图解析 如返回student。。在这里配置后缀名ftl和视图解析器。。 -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-		<!--  
-		<property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"></property>
-		-->
 		<property name="viewClass" value="ttsoft.osgi.servlet.TtSoftOsgiSpringMVCFreeMarkerView"></property>
 		<property name="suffix" value=".ftl" />
 		<property name="contentType" value="text/html;charset=utf-8" />

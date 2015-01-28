@@ -1,19 +1,19 @@
 #测试hello插件
-start file:/D:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.hello_1.0.0.jar
+start file:/H:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.hello_1.0.0.jar
 ##控制台显示：Hello World, start!
 stop <ID>
 ##控制台显示：Hello World, stop!
 
+#测试spring hello插件
+start file:/H:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.spring.hello_1.0.0.jar
+
 #测试struts2 hello插件
-start file:/D:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.struts2.hello_1.0_1.0.0.jar
+start file:/H:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.struts2.hello_1.0_1.0.0.jar
 ##请求：http://localhost:8080/ttwebplatform/ttsoft.osgi.test.struts2.hello_1.0/hello.action
 
-#测试spring hello插件
-start file:/D:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.spring.hello_1.0.0.jar
-
 #测试相同包相同类名的action类在不同插件
-start file:/D:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.struts2spring.sameaction1_1.0_1.0.0.jar
-start file:/D:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.struts2spring.sameaction2_1.0_1.0.0.jar
+start file:/H:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.struts2spring.sameaction1_1.0_1.0.0.jar
+start file:/H:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.struts2spring.sameaction2_1.0_1.0.0.jar
 ##请求：http://localhost:8080/ttwebplatform/ttsoft.osgi.test.struts2spring.sameaction1_1.0/same.action
 ##请求：http://localhost:8080/ttwebplatform/ttsoft.osgi.test.struts2spring.sameaction2_1.0/same.action
 
@@ -21,5 +21,6 @@ start file:/D:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.struts2spri
 start file:/H:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.springmvc.hello_1.0_1.0.0.jar
 ##请求：http://localhost:8080/ttwebplatform/sservlet/ttsoft.osgi.test.springmvc.hello_1.0/test/hello
 
-
+#测试mybatis
+start file:/H:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.mybatis_1.0.0.jar
 

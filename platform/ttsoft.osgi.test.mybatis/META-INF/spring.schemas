@@ -1,0 +1,2 @@
+http\://www.springframework.org/schema/tx/spring-tx.xsd=org/springframework/transaction/config/spring-tx-3.2.xsd
+http\://java.sun.com/jaxp/xpath/dom=org.apache.xpath.jaxp.XPathFactoryImpl

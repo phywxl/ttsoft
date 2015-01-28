@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:osgi="http://www.springframework.org/schema/osgi"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+                      http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi-1.2.xsd">
+	
+	<!-- 获得配置属性，在ttsoft-osgi.properties 文件中 -->
+	<bean id="bundleContextPropertyPlaceholderConfigurer" class="ttsoft.osgi.base.BundleContextPropertyPlaceholderConfigurer"
+	      init-method="initilize">
+		<property name="propertyNames">
+			<list>
+				 <value>jdbc.driverClassName</value>
+				 <value>jdbc.ip</value>
+				 <value>jdbc.port</value>
+				 <value>jdbc.instance</value>
+				 <value>jdbc.url</value>
+				 <value>jdbc.username</value>
+				 <value>jdbc.password</value>
+				 <value>jdbc.minPoolSize</value>
+				 <value>jdbc.maxPoolSize</value>
+				 <value>jdbc.initialPoolSize</value>
+				 <value>jdbc.acquireIncrement</value>
+				 <value>jdbc.maxIdleTime</value>
+				 <value>jdbc.idleConnectionTestPeriod</value>
+				 <value>jdbc.testConnectionOnCheckout</value>
+				 <value>jdbc.maxStatements</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 系统初始数据源 -->
+	<bean id="ttsoft.osgi.datasource.localhost" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		  destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClassName}"/>
+		<property name="jdbcUrl" value="${jdbc.url}"/>
+		<property name="user" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+        <property name="minPoolSize" value="${jdbc.minPoolSize}"/>
+        <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+		<property name="initialPoolSize" value="${jdbc.initialPoolSize}"/>
+		<property name="acquireIncrement" value="${jdbc.acquireIncrement}"/>
+		<property name="maxIdleTime" value="${jdbc.maxIdleTime}"/>
+		<property name="idleConnectionTestPeriod" value="${jdbc.idleConnectionTestPeriod}"/>
+		<property name="testConnectionOnCheckout" value="${jdbc.testConnectionOnCheckout}"/>
+		<property name="maxStatements" value="${jdbc.maxStatements}"/>
+	</bean>
+	
+	<!-- 数据源维护ibatis配置 -->
+	<bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" />
+        
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="dataSource">
+			<ref bean="ttsoft.osgi.datasource.localhost"/>
+		</property>
+		<property name="configLocation">
+			<value>classpath:ttsoft/osgi/datasource/dao/ibatis/ibatis.xml</value> 
+		</property>
+		<property name="lobHandler" ref="lobHandler"/>
+	</bean>
+	
+	<bean id="sqlMapClientTemplate" class="org.springframework.orm.ibatis.SqlMapClientTemplate">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient"/>
+		</property>
+	</bean>
+	
+</beans>

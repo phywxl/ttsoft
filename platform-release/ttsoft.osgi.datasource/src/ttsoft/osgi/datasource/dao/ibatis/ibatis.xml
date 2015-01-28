@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMapConfig [
+	<!ELEMENT sqlMapConfig (properties?, settings?, resultObjectFactory?, typeAlias*, typeHandler*, transactionManager?, sqlMap+)+>
+	<!ATTLIST sqlMapConfig
+	xmlns:fo CDATA #IMPLIED
+	>
+	
+	<!ELEMENT properties EMPTY>
+	<!ATTLIST properties
+	resource CDATA #IMPLIED
+	url CDATA #IMPLIED
+	>
+	
+	<!ELEMENT settings EMPTY>
+	<!ATTLIST settings
+	classInfoCacheEnabled (true | false) #IMPLIED
+	lazyLoadingEnabled (true | false) #IMPLIED
+	statementCachingEnabled (true | false) #IMPLIED
+	cacheModelsEnabled (true | false) #IMPLIED
+	enhancementEnabled (true | false) #IMPLIED
+	errorTracingEnabled (true | false) #IMPLIED
+	useStatementNamespaces (true | false) #IMPLIED
+	maxSessions CDATA #IMPLIED
+	maxTransactions CDATA #IMPLIED
+	maxRequests CDATA #IMPLIED
+	defaultStatementTimeout CDATA #IMPLIED
+	>
+	
+	<!ELEMENT transactionManager (property*,dataSource)>
+	<!ATTLIST transactionManager
+	type CDATA #REQUIRED
+	commitRequired (true | false) #IMPLIED
+	>
+	
+	<!ELEMENT dataSource (property*)>
+	<!ATTLIST dataSource
+	type CDATA #REQUIRED
+	>
+	
+	<!ELEMENT property EMPTY>
+	<!ATTLIST property
+	name CDATA #REQUIRED
+	value CDATA #REQUIRED
+	>
+	
+	<!ELEMENT sqlMap EMPTY>
+	<!ATTLIST sqlMap
+	resource CDATA #IMPLIED
+	url CDATA #IMPLIED
+	>
+	
+	<!ELEMENT typeAlias EMPTY>
+	<!ATTLIST typeAlias
+	alias CDATA #REQUIRED
+	type CDATA #REQUIRED
+	>
+	
+	<!ELEMENT typeHandler EMPTY>
+	<!ATTLIST typeHandler
+	javaType CDATA #REQUIRED
+	jdbcType CDATA #IMPLIED
+	callback CDATA #REQUIRED
+	>
+	
+	<!ELEMENT resultObjectFactory (property*)>
+	<!ATTLIST resultObjectFactory
+	type CDATA #REQUIRED
+	>
+]>
+
+<sqlMapConfig>
+	<settings
+		cacheModelsEnabled="true"
+	    enhancementEnabled="true"
+	    lazyLoadingEnabled="true"
+	    errorTracingEnabled="true"
+	    maxRequests="32"
+	    maxSessions="10"
+	    maxTransactions="5"
+	    useStatementNamespaces="true"
+	/>
+	<!-- 框架相关配置 -->
+	<typeHandler jdbcType="BLOB" javaType="[B" callback="org.springframework.orm.ibatis.support.BlobByteArrayTypeHandler" />
+	<typeHandler jdbcType="CLOB" javaType="java.lang.String" callback="org.springframework.orm.ibatis.support.ClobStringTypeHandler" />
+	<!-- 分页 -->
+	<sqlMap resource="ttsoft/osgi/datasource/dao/ibatis/PageBean.xml"/>
+	
+	<!-- 修改为自己的配置文件 -->
+	<sqlMap resource="ttsoft/osgi/datasource/dao/ibatis/DataSourceManageImpl.xml"/>
+	<sqlMap resource="ttsoft/osgi/datasource/dao/ibatis/TableManageImpl.xml"/>
+	
+</sqlMapConfig>

@@ -3,7 +3,12 @@
 
 #osgi集成SpringMVC
 ##建立类
-ttsoft.osgi.servlet.TtSoftOsgiSpringMVCServlet
+ttsoft.osgi.servlet.TtSoftOsgiSpringMVCServlet，替代spring mvc DispatcherServlet
+ttsoft.osgi.servlet.TtSoftOsgiSpringMVCRequestWrapper，解决请求路径内有插件名和插件版本问题
+ttsoft.osgi.servlet.TtSoftOsgiSpringMVCFreeMarkerView，替代spring mvc FreeMarkerView
+##重编译
+org.springframework.context.support.ApplicationObjectSupport，方法setApplicationContext改为非final
+org.springframework.web.servlet.HttpServletBean，方法getServletContext、getServletConfig、getServletName改为非final
 ##修改web.xml，增加
 	<servlet>
 		<servlet-name>springMVCServlet</servlet-name>
@@ -20,31 +25,22 @@ ttsoft.osgi.servlet.TtSoftOsgiSpringMVCServlet
 <constant name="struts.action.excludePattern" value="^/servlet/.*, ^/cservlet/.*, ^/sservlet/.*" />
 ##增加spring配置文件
 /WEB-INF/springMVCServlet-servlet.xml
-##编码test类，请求http://localhost:8080/ttwebplatform/sservlet/test/hello，测试web工程spring mvc
+##编码test类，修改springMVCServlet-servlet.xml
+####请求 http://localhost:8080/ttwebplatform/sservlet/test/hello，测试web工程内spring mvc
 ##编写插件ttsoft.osgi.test.springmvc.hello
-####请求 http://localhost:8080/ttwebplatform/sservlet/ttsoft.osgi.test.springmvc.hello_1.0/test/hello，测试插件工程spring mvc
+####请求  http://localhost:8080/ttwebplatform/sservlet/ttsoft.osgi.test.springmvc.hello_1.0/test/hello，测试插件内spring mvc
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#osgi集成mybatis
+##WEB-INF/lib增加
+“mybatis-3.2.5.jar”、“mybatis-spring-1.2.2.jar”
+“xalan.jar”、“serializer.jar”、“xercesImpl.jar”、“xml-apis.jar”
+“cglib-2.2.2.jar”、“dom4j-1.6.1.jar”、“jaxen-1.1.3.jar”
+javassist改为了“javassist-3.17.1-GA.jar”
+slf4j改为了1.7.5版本
+##修改ttsoft-osgi.properties
+增加mybatis包、dom4j包、xalan包、sun jaxp包
+##编写ttsoft.osgi.test.mybatis插件
+MENIFEST-INF目录增加xalan的services目录内容
 
 
 
