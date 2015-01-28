@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="refresh" content="0;url=./ttsoft.osgi.web.main_1.0/main.action">
 <script type="text/javascript">
 </script>
 </head>

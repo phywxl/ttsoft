@@ -26,8 +26,8 @@
 
         <action name="index">
         	<result type="redirectAction">
-        		<param name="namespace">/iwell.disposition.res_1.0</param>
-        		<param name="actionName">login</param>  
+        		<param name="namespace">/ttsoft.osgi.web.main_1.0</param>
+        		<param name="actionName">main</param>  
         	</result>
         </action>
     </package>
