@@ -1,2 +1,3 @@
 #访问插件资源
-start file:/D:\github\repos\ttsoft\plugins-core\plugins\ttsoft.osgi.web.pluginresfilter_1.0.0.jar
+start file:/H:\github\repos\ttsoft\plugins-core\plugins\ttsoft.osgi.web.pluginresfilter_1.0.0.jar
+##请求 http://localhost:8080/platform/ttsoft.osgi.test.springmvc.hello_1.0/imgs/1844404083.jpg

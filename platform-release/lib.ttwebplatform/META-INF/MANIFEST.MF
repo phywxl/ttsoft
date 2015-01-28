@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: TTSOFT Library TTWebPlatform Provider
+Bundle-SymbolicName: lib.ttwebplatform
+Bundle-Version: 1.0.0
+Bundle-Vendor: ttsoft.com.cn

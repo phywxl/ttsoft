@@ -18,7 +18,7 @@ start file:/D:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.struts2spri
 ##«Î«Û£∫http://localhost:8080/ttwebplatform/ttsoft.osgi.test.struts2spring.sameaction2_1.0/same.action
 
 #≤‚ ‘spring mvc
-start file:/D:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.springmvc.hello_1.0_1.0.0.jar
+start file:/H:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.springmvc.hello_1.0_1.0.0.jar
 ##«Î«Û£∫http://localhost:8080/ttwebplatform/sservlet/ttsoft.osgi.test.springmvc.hello_1.0/test/hello
 
 
