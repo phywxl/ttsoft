@@ -5,3 +5,4 @@ start file:/H:\github\repos\ttsoft\platform-release\plugins\ttsoft.osgi.web.plug
 
 #数据源
 start file:/H:\github\repos\ttsoft\platform-release\plugins\ttsoft.osgi.datasource_1.0.0.jar
+##请求 http://localhost:8080/platform/ttsoft.osgi.datasource/ds/dspage.action

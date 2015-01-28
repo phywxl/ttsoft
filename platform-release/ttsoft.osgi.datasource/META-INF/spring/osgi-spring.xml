@@ -30,7 +30,7 @@
 	</bean>
 	<!-- 系统初始数据源 -->
 	<bean id="ttsoft.osgi.datasource.localhost" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-		  destroy-method="close">
+		  destroy-method="close" depends-on="bundleContextPropertyPlaceholderConfigurer">
 		<property name="driverClass" value="${jdbc.driverClassName}"/>
 		<property name="jdbcUrl" value="${jdbc.url}"/>
 		<property name="user" value="${jdbc.username}"/>

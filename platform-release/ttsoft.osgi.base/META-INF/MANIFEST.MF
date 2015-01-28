@@ -5,3 +5,4 @@ Bundle-SymbolicName: ttsoft.osgi.base
 Bundle-Version: 1.0.0
 Bundle-Vendor: ttsoft.com.cn
 Export-Package: ttsoft.osgi.base
+DynamicImport-Package: *

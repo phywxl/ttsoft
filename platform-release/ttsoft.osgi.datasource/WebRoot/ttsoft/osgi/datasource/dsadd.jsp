@@ -4,11 +4,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>数据源分页</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/iwell.disposition.res_1.0/res/js/easyui/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/iwell.disposition.res_1.0/res/js/easyui/themes/icon.css">
-<script type="text/javascript" src="${pageContext.request.contextPath}/iwell.disposition.res_1.0/res/js/jquery-1.8.0.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/iwell.disposition.res_1.0/res/js/easyui/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/iwell.disposition.res_1.0/res/js/easyui/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/ttsoft.osgi.datasource/1.0.0/res/js/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/ttsoft.osgi.datasource/1.0.0/res/js/easyui/themes/icon.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/ttsoft.osgi.datasource/1.0.0/res/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/ttsoft.osgi.datasource/1.0.0/res/js/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/ttsoft.osgi.datasource/1.0.0/res/js/easyui/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript">
 function dsLxOnSelect(record) {
 	if (record.value && record.value != "") {

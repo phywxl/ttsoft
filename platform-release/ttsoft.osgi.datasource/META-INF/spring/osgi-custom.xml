@@ -17,7 +17,7 @@
 	<bean id="initDataSourceManage" class="ttsoft.osgi.datasource.internal.InitDataSourceManage"
 	      init-method="start" destroy-method="destroy">
 		<property name="sqlMapClientTemplate" ref="sqlMapClientTemplate" />
-		<property name="minPoolSize" value="${jdbc.minPoolSize}"/>
+		<property name="minPoolSize"><value>1</value></property>
         <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
 		<property name="initialPoolSize" value="${jdbc.initialPoolSize}"/>
 		<property name="acquireIncrement" value="${jdbc.acquireIncrement}"/>
