@@ -157,11 +157,12 @@ public class PluginResourceFilter implements Filter, BundleContextAware {
 				}
 				
 				if (version != null) {
-					t = t.substring(v.length());
+					t = t.substring(v.length() + 1);
 					
 					for (Bundle b : activeBundles) {
 						if (b.getSymbolicName().trim().equals(pluginTmpId) && version.equals(b.getVersion())) {
 							bundle = b;
+							break;
 						}
 					}
 				}
