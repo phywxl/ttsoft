@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: TTSoft OSGI Test Jersey
+Bundle-SymbolicName: ttsoft.osgi.test.jersey
+Bundle-Version: 1.0.0
+Bundle-Vendor: ttsoft.com.cn
+DynamicImport-Package: *
+Bundle-Activator: ttsoft.osgi.test.jersey.Activator

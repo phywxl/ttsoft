@@ -25,3 +25,5 @@ start file:/H:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.springmvc.h
 start file:/H:\github\repos\ttsoft\platform-release\plugins\ttsoft.osgi.datasource_1.0.0.jar
 start file:/H:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.mybatis_1.0.0.jar
 
+#≤‚ ‘Jersey
+start file:/H:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.jersey_1.0.0.jar
