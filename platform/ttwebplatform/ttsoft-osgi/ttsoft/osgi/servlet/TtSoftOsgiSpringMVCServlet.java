@@ -144,6 +144,9 @@ public class TtSoftOsgiSpringMVCServlet extends GenericServlet {
 			if (b.getBundleId() == 0) {
 				continue;
 			}
+			if (b.getSymbolicName() == null) {
+				continue;
+			}
 			
 			if (b.getSymbolicName().equals(synblicName)) {
 				if (version != null) {

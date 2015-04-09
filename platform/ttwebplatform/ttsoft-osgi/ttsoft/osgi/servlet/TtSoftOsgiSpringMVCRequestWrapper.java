@@ -16,22 +16,14 @@ public class TtSoftOsgiSpringMVCRequestWrapper extends HttpServletRequestWrapper
 	@Override
 	public String getPathInfo() {
 		String str = super.getPathInfo(); 
+		str = this.trimBundle(str);
 		return str;
 	}
 
 	@Override
 	public String getRequestURI() {
 		String str = super.getRequestURI();
-		if (str != null) {
-			if (str.indexOf("/" + this.symbolicName) > 0) {
-				str = str.replaceFirst("/" + this.symbolicName, "");
-			}
-			if (this.ver != null) {
-				if (str.indexOf("/" + this.ver) > 0) {
-					str = str.replaceFirst("/" + this.ver, "");
-				}
-			}
-		}
+		str = this.trimBundle(str);
 		
 		return str;
 	}
@@ -39,8 +31,22 @@ public class TtSoftOsgiSpringMVCRequestWrapper extends HttpServletRequestWrapper
 	@Override
 	public StringBuffer getRequestURL() {
 		StringBuffer sb = super.getRequestURL(); 
-		return sb;
+		String s = this.trimBundle(sb.toString());
+		return new StringBuffer(s);
 	}
 
-	
+	private String trimBundle(String str) {
+		if (str == null) return null;
+		
+		if (str.indexOf("/" + this.symbolicName) > 0) {
+			str = str.replaceFirst("/" + this.symbolicName, "");
+		}
+		if (this.ver != null) {
+			if (str.indexOf("/" + this.ver) > 0) {
+				str = str.replaceFirst("/" + this.ver, "");
+			}
+		}
+		
+		return str;
+	}
 }
