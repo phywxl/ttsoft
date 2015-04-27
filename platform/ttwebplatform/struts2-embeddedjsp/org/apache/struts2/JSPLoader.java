@@ -386,6 +386,7 @@ public class JSPLoader {
     		symbolicName = symbolicName.trim();
     		
     		for (Map.Entry<String, Bundle> entry : DefaultBundleAccessor.getInstance().getActiveBundles().entrySet()) {
+    			if (entry.getValue() == null || entry.getValue().getSymbolicName() == null) continue;
 				if (entry.getValue().getSymbolicName().equals(symbolicName)) {
 					hasPlugin = true;
 					break;

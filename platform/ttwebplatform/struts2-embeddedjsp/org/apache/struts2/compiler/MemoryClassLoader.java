@@ -143,6 +143,7 @@ public class MemoryClassLoader extends ClassLoader {
     		location = location.substring(0, i);
     		if (location != null && location.length() > 0) {
     			for (Map.Entry<String, Bundle> entry : DefaultBundleAccessor.getInstance().getActiveBundles().entrySet()) {
+    				if (entry.getValue() == null || entry.getValue().getSymbolicName() == null) continue;
     				if (entry.getValue().getSymbolicName().equals(location)) {
     					return entry.getValue();
     				}
@@ -162,6 +163,7 @@ public class MemoryClassLoader extends ClassLoader {
     		symbolicName = symbolicName.trim();
     		
     		for (Map.Entry<String, Bundle> entry : DefaultBundleAccessor.getInstance().getActiveBundles().entrySet()) {
+    			if (entry.getValue() == null || entry.getValue().getSymbolicName() == null) continue;
 				if (entry.getValue().getSymbolicName().equals(symbolicName)) {
 					return entry.getValue();
 				}
