@@ -414,6 +414,7 @@ public class DefaultBundleAccessor implements BundleAccessor {
     		p = p.substring(0, i);
     		if (p != null && p.length() > 0) {
     			for (Map.Entry<String, Bundle> entry : osgiHost.getActiveBundles().entrySet()) {
+    				if (entry.getValue() == null || entry.getValue().getSymbolicName() == null) continue;
     				//如果确实是特定插件
     				if (entry.getValue().getSymbolicName().equals(p)) {
     					//资源集合
