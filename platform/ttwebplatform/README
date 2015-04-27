@@ -42,7 +42,7 @@ slf4j改为了1.7.5版本
 ##编写ttsoft.osgi.test.mybatis插件
 MENIFEST-INF目录增加xalan的services目录内容
 
-#osgi集成jesey
+#osgi集成jesey，已被resteasy替代
 ##osgi/bundles
 增加15目录，放入jesey相关jar
 ##WEB-INF/lib
@@ -67,9 +67,13 @@ MENIFEST-INF目录增加xalan的services目录内容
  javassist.util;version=3.18.1,\
  javassist.util.proxy;version=3.18.1,\
 #需要tomcat-7.x，jdk-1.7
+##编写插件ttsoft.osgi.test.jersey
+####请求  http://localhost:8080/ttwebplatform/servlet/jersey-http-service/status
 
-
-
+#osgi集成cxf-osgi-1.6.0
+##osgi/bundles
+增加5目录
+##修改ttsoft-osgi.properties
 
 
 

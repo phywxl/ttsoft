@@ -1,8 +1,42 @@
 #访问插件资源
 start file:/H:\github\repos\ttsoft\platform\plugins\ttsoft.osgi.test.springmvc.hello_1.0_1.0.0.jar
-start file:/H:\github\repos\ttsoft\platform-release\plugins\ttsoft.osgi.web.pluginresfilter_1.0.0.jar
+start file:/I:\github\repos\ttsoft\platform-release\plugins\ttsoft.osgi.web.pluginresfilter_1.0.0.jar
 ##请求 http://localhost:8080/platform/ttsoft.osgi.test.springmvc.hello_1.0/imgs/1844404083.jpg
 
 #数据源
 start file:/H:\github\repos\ttsoft\platform-release\plugins\ttsoft.osgi.datasource_1.0.0.jar
 ##请求 http://localhost:8080/platform/ttsoft.osgi.datasource/ds/dspage.action
+
+#测试webservices
+#服务端
+start file:/I:\github\repos\ttsoft\platform\plugins\cxf-dosgi-ri-samples-spring-dm-interface-1.2.jar
+start file:/I:\github\repos\ttsoft\platform\plugins\cxf-dosgi-ri-samples-spring-dm-impl-1.2.jar
+#请求 http://localhost:8080/platform/servlet/sprindm?wsdl 看看wsdl文件
+#客户端，注意client内的schemas
+start file:/I:\github\repos\ttsoft\platform\plugins\cxf-dosgi-ri-samples-spring-dm-interface-1.2.jar
+start file:/I:\github\repos\ttsoft\platform\plugins\cxf-dosgi-ri-samples-spring-dm-client-1.2.jar
+##服务端在控制台输出如下内容：
+Hey! Someone's using the Dinner Service! Query: nice and not too expensive!
+##客户端在控制台输出如下内容：
+Found the following restaurants:
+  Jojo's (1 food way) Rating: 3
+  Boohaa's (95 forage ave) Rating: 1
+  MicMac (Plastic Plaza) Rating: 1
+
+start file:/I:\github\repos\ttsoft\platform-release\plugins\cxf-dosgi-ri-samples-greeter-rest-interface-1.6.0.jar
+start file:/I:\github\repos\ttsoft\platform-release\plugins\cxf-dosgi-ri-samples-greeter-rest-impl-1.6.0.jar
+start file:/I:\github\repos\ttsoft\platform-release\plugins\cxf-dosgi-ri-samples-greeter-rest-impl2-1.6.0.jar
+
+start file:/I:\github\repos\ttsoft\platform-release\plugins\cxf-dosgi-ri-samples-greeter-rest-client-1.6.0.jar
+
+#测试webservices
+#服务端
+start file:/I:\github\repos\ttsoft\platform-release\plugins\cxf-dosgi-ri-samples-spring-dm-interface-1.6.0.jar
+start file:/I:\github\repos\ttsoft\platform-release\plugins\cxf-dosgi-ri-samples-spring-dm-impl-1.6.0.jar
+#客户端，注意client内的schemas
+start file:/I:\github\repos\ttsoft\platform-release\plugins\cxf-dosgi-ri-samples-spring-dm-client-1.6.0.jar
+
+
+start file:/I:\github\repos\ttsoft\platform-release\plugins\ttsoft.osgi.rest_1.0.0.jar
+start file:/I:\github\repos\ttsoft\platform-release\plugins\ttsoft.osgi.test.rest_1.0.0.jar
+##请求 http://localhost:8080/platform/servlet/rs/status

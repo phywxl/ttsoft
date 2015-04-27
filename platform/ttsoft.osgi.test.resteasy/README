@@ -1,0 +1,11 @@
+注意事项：
+##首先启动 ttsoft.osgi.lib.resteasy 插件
+##增加 META-INF/spring/springmvc-resteasy.xml，支持resteasy springmvc
+org.jboss.resteasy.springmvc.ResteasyHandlerMapping类增加前缀，与web.xml配置的spring mvc servlet相同，现为“/sservlet”
+##增加 META-INF/services目录及其内容
+##增加 META-INF/spring.schemas
+##增加 META-INF/sring.handlers
+##测试
+命令行：
+  curl -i -H "Accept: application/xml"  http://localhost:8080/ttwebplatform/sservlet/ttsoft.osgi.test.resteasy/1.0.0/hello/data"
+  curl -i -H "Accept: application/json" http://localhost:8080/ttwebplatform/sservlet/ttsoft.osgi.test.resteasy/1.0.0/hello/data"

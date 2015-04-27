@@ -122,5 +122,4 @@
     <bean id="reateasy.error.view.resolver"
           class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
     
-    <bean id="helloController" class="ttsoft.osgi.test.resteasy.HelloController" />
 </beans>

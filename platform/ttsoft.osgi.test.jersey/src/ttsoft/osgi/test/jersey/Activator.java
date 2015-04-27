@@ -115,7 +115,8 @@ public class Activator implements BundleActivator {
 	@SuppressWarnings("UseOfObsoleteCollectionType")
 	private Dictionary<String, String> getJerseyServletParams() {
 		Dictionary<String, String> jerseyServletParams = new Hashtable<String, String>();
-		jerseyServletParams.put("javax.ws.rs.Application", JerseyApplication.class.getName());
+		//jerseyServletParams.put("javax.ws.rs.Application", JerseyApplication.class.getName());
+		jerseyServletParams.put("javax.ws.rs.Application", JerseyResourceConfig.class.getName());
 		return jerseyServletParams;
 	}
 }

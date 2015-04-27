@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:osgi="http://www.springframework.org/schema/osgi"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                      http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi-1.2.xsd">
+
+	<bean name="/test/hello" class="ttsoft.osgi.test.springmvc.jsp.HelloController" />
+    
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+  		<property name="viewClass">
+   			<value>ttsoft.osgi.servlet.TtSoftOsgiSpringMVCJspView</value>
+  		</property>
+  		<!-- 设置前缀，即视图所在的路径 
+  		<property name="prefix" value="/WebRoot/" />
+  		-->
+  		<!-- 设置后缀，即视图的扩展名 -->
+  		<property name="suffix" value=".jsp" />
+ 	</bean>
+</beans>

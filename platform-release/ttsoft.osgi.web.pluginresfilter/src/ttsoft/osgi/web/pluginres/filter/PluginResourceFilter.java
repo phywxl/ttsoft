@@ -128,6 +128,9 @@ public class PluginResourceFilter implements Filter, BundleContextAware {
 			List<Bundle> activeBundles = getActiveBundles();  //所有插件
 			//是否插件ID
 			for (Bundle b : activeBundles) {
+				if (b == null || b.getBundleId() == 0L || b.getSymbolicName() == null) {
+					continue;
+				}
 				if (b.getSymbolicName().trim().equals(pluginTmpId)) {
 					isPluginId = true;
 					

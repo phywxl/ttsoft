@@ -6,6 +6,10 @@ import javax.ws.rs.Produces;
 
 @Path("status")
 public class StatusResource {
+	public StatusResource() {
+		System.out.println("==StatusResource constrator.");
+	}
+	
 	@GET
 	@Produces("text/plain")
 	public String getStatus() {
